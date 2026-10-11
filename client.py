@@ -1,7 +1,13 @@
 from socket import *
+import os
+from dotenv import load_dotenv
 
-serverName = '10.188.141.177'
-serverPort = 12000
+load_dotenv()
+
+# Read them securely
+serverName = os.getenv("SERVER_IP")
+serverPort = int(os.getenv("SERVER_PORT"))
+
 clientSocket = socket(AF_INET, SOCK_DGRAM)
 
 message = input('Input lowercase sentence:')
